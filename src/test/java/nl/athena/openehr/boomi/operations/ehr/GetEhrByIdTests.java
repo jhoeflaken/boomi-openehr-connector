@@ -26,9 +26,18 @@ public class GetEhrByIdTests {
 
         final OpenEhrConnector openEhrConnector = new OpenEhrConnector();
         final ConnectorTester connectorTester = new ConnectorTester(openEhrConnector);
-        connectorTester.setOperationContext(OperationType.GET, connectionProperties, operationProperties,
-                "GetEhrById", null);
 
+        final ExtendedOperationContext operationContext = new ExtendedOperationContext(
+                connectorTester.getConfig(),
+                openEhrConnector,
+                OperationType.GET,
+                "GetEhrById",
+                connectionProperties,
+                operationProperties,
+                "cbe269ba-653e-46a3-9528-a1449a8fb052",
+                null);
+
+        connectorTester.setOperationContext(operationContext);
         List<SimpleOperationResult> results = connectorTester.executeGetOperation("cbe269ba-653e-46a3-9528-a1449a8fb052");
 
         for (SimpleOperationResult result : results) {

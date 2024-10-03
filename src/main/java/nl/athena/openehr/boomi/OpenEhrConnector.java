@@ -18,7 +18,7 @@ public class OpenEhrConnector extends BaseConnector {
     protected Operation createGetOperation(OperationContext theOperationContext) {
         final String operation = theOperationContext.getCustomOperationType();
         switch (operation) {
-            case "GET_EHR_BY_ID":
+            case "GetEhrById":
                 return new GetEhrByIdOperation(new OpenEhrConnection(theOperationContext));
             default:
                 throw new IllegalArgumentException("Unknown OpenEhr service: " + operation);
