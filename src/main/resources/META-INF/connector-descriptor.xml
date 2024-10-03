@@ -2,16 +2,24 @@
 <GenericConnectorDescriptor
     RequireConnectionForBrowse="true">
     <description>OpenEHR Connector</description>
-    <field id="uri" label="URL"  type="string">
+    <field id="baseUrl" label="Base URL"  type="string">
         <helpText>The base URL of the OpenEHR REST API</helpText>
     </field>
-    <field id=" oAuth" label="OAuth2" type="oauth">
-        <helpText>The OAuth2 authentication details</helpText>
+    <field id="username" label="Username" type="password">
+        <helpText>The username to authenticate with</helpText>
+    </field>
+    <field id="password" label="Password" type="password">
+        <helpText>The password to authenticate with</helpText>
     </field>
 
-    <operation>
+    <operation types="GET" customTypeId="GET_EHR_BY_ID" customTypeLabel="GetEhrById">
+        <field id="Prefer" label="Prefer" type="string">
+            <helpText>Request header to indicate the preference over response details.</helpText>
+            <defaultValue>minimal</defaultValue>
+            <allowedValue label="Full details">representation</allowedValue>
+            <allowedValue label="Minimal details">minimal</allowedValue>
+        </field>
+        <trackedProperty id="Location" label="Location" />
+        <trackedProperty id="ETag" label="ETag" />
     </operation>
-
-    <dynamicProperty>
-    </dynamicProperty>
 </GenericConnectorDescriptor>
