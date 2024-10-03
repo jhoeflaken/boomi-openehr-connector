@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenericConnectorDescriptor
+    RequireConnectionForBrowse="true">
+    <description>OpenEHR Connector</description>
+    <field id="uri" label="URL"  type="string">
+        <helpText>The base URL of the OpenEHR REST API</helpText>
+    </field>
+    <field id=" oAuth" label="OAuth2" type="oauth">
+        <helpText>The OAuth2 authentication details</helpText>
+    </field>
+
+    <operation>
+    </operation>
+
+    <dynamicProperty>
+    </dynamicProperty>
+</GenericConnectorDescriptor>

@@ -1,0 +1,28 @@
+plugins {
+    id 'com.boomi.connector' version '0.5.0'
+}
+
+connector {
+    sdkVersion '2.19.0'
+    className 'nl.athena.openehr.boomi.OpenEHRConnector'
+}
+
+group = 'nl.athena.openehr.boomi'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api 'com.boomi.connsdk:connector-sdk-util'
+
+    implementation ' com.boomi.util:boomi-util:2.3.0'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
